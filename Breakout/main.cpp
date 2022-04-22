@@ -1,12 +1,16 @@
 #include "MenuScreen.h"
+#include "PlayScreen.h"
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
+    srand(time(NULL));
+
+    sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!", sf::Style::Close);
 
     GameState gameState = GameState::MENU;
 
     MenuScreen menuScreen(&gameState, window);
+    PlayScreen playScreen(&gameState, window);
 
     GameScreen* activeScreen = &menuScreen;
 
@@ -18,8 +22,10 @@ int main()
         switch (gameState)
         {
         case GameState::PLAYING:
+            activeScreen = &playScreen;
             break;
         case GameState::PAUSED:
+            activeScreen = &menuScreen;
             break;
         case GameState::MENU:
             activeScreen = &menuScreen;
@@ -27,6 +33,7 @@ int main()
         case GameState::TUTORIAL:
             break;
         case GameState::QUIT:
+            window.close();
             break;
         }
 

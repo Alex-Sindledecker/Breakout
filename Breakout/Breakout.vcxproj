@@ -153,12 +153,17 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuScreen.cpp" />
+    <ClCompile Include="PlayScreen.cpp" />
     <ClCompile Include="TextButton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameScreen.h" />
     <ClInclude Include="MenuScreen.h" />
+    <ClInclude Include="PlayScreen.h" />
     <ClInclude Include="TextButton.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\levels\1.lvl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
